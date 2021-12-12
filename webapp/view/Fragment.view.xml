@@ -1,0 +1,32 @@
+<mvc:View
+    controllerName="fragment.fragment.controller.Fragment"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+>
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}" class="sapUiContentPadding">
+
+					<content>
+                    <Label text = "Enter Full Name" />
+                    <Input value = "" id= "inp_nameID"/>
+                    <Label text = "Enter E-Mail ID" />
+                    <Input value = "" id= "inp_emailID"/>
+                    </content>
+
+                     <footer>
+                        <Bar design="Footer">
+                           <contentLeft>
+                              <Button text="View Fragment" press="onViewFragment"></Button>
+                            </contentLeft>
+                        </Bar>
+                    </footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
