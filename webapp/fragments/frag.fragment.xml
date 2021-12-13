@@ -4,7 +4,7 @@
           <Label text="Entered Name"></Label>
           <Input value=""></Input>
           <Label text="Entered E-Mail"></Label>
-          <Input value=""></Input>
+          <Input value="Test value"></Input>
        </content>
        <endButton>
           <Button text="Close" press="onCloseDialog"></Button>
