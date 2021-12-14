@@ -39,6 +39,6 @@ jobs:
       - name: Deploy 
         uses: goelanivrat/sapui5_conn@a2
         with: 
-          server: 	sapes5.sapdevcenter.com
+          server: sapes5.sapdevcenter.com
           username: P2004408156 
           password: ${{secrets.password_es5}}
