@@ -37,7 +37,7 @@ jobs:
           echo test, and deploy your project.
           
       - name: Deploy 
-        uses: goelanivrat/sapui5_conn@a2
+        uses: goelanivrat/sapui5_conn@a5
         with: 
           server: vmw6271.dmzwdf.sap.corp
           username: P2004408156 
