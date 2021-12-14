@@ -23,6 +23,7 @@ jobs:
       - name: Load NPM dependencies
         run: yarn
       - name: Building Project
+          npm i -g @ui5/cli
         run: yarn build-preload
       - name: Deploying Project
         uses: integrtr/ui5-deploy@master
