@@ -25,6 +25,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       
       - uses: actions/checkout@v2
+      
+      - name: Deploy 
+        uses: goelanivrat/sapui5_conn@a2
+        with: 
+          server: vmw6271.dmzwdf.sap.corp
+          username: P2004408156 
+          password: ${{secrets.password_es5}}
         
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -36,9 +43,3 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
         
-      - name: Deploy 
-        uses: goelanivrat/sapui5_conn@a2
-        with: 
-          server: vmw6271.dmzwdf.sap.corp
-          username: P2004408156 
-          password: ${{secrets.password_es5}}
