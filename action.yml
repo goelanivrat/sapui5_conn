@@ -41,6 +41,4 @@ inputs:
   security:
     required: false
     description: "strict or loose"
-runs:
-  using: "node12"
-  main: "webapp/index.html"
+
