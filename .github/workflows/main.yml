@@ -23,11 +23,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
+      
+        
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: npm run deploy
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
@@ -36,7 +36,8 @@ jobs:
           echo test, and deploy your project.
         
       - name: Deploy 
-        with:
-          server: 123.456.789
+        uses: SamKirkland/FTP-Deploy-Action@4.2.0
+        with: 
+          server: 	sapes5.sapdevcenter.com
           username: P2004408156 
           password: ${{secrets.password_es5}}
