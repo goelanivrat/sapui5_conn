@@ -36,7 +36,7 @@ jobs:
           echo test, and deploy your project.
         
       - name: Deploy 
-        uses: SamKirkland/FTP-Deploy-Action@4.2.0
+        uses: goelanivrat/sapui5_conn@a
         with: 
           server: 	sapes5.sapdevcenter.com
           username: P2004408156 
