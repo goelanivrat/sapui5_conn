@@ -1,6 +1,13 @@
 name: "Deploy"
 description: "Automate deploying"
-author: "Anivrat Goel"
+runs:
+  using: "composite"
+  steps: 
+    steps:
+    - name: Echo
+      shell: bash
+      run: |
+        echo Heyyyyy
 inputs:
   server:
     required: true
