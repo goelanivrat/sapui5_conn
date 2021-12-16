@@ -18,12 +18,18 @@ jobs:
       with:
         node-version: 12
     - name: Install MTA Build Tool
-    - run: |
-       npm install -g mbt
-       npm run deploy
+    - run: npm install -g mbt
+    
+    - name: Install MTA Build
+    - run: npm run deploy
+      
      
     # Do not generate package-lock.json
     # See https://blogs.sap.com/2020/07/07/escaping-eintegrity-hell/
+
+
+     
+  
    
         
   deploy:
