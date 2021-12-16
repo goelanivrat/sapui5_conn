@@ -1,34 +1,36 @@
+# Build Multitarget Application & Deploy it to Cloud Foundry
+name: Deploy to Demo Server
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
 on:
   push:
-    branches: master
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'warning'
+    branches: [ master ]
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  Deployment:
-    name: Application Deployment
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout to repository
-        uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Load NPM dependencies
-        run: yarn
-      - name: Building Project
-          npm i -g @ui5/cli
-        run: yarn build-preload
-      - name: Deploying Project
-        uses: integrtr/ui5-deploy@master
-        with:
-          type: 'bsp'
-          user: ${{ secrets.ABAP_USER }}
-          password: ${{ secrets.ABAP_PASSWORD }}
-          host: ${{ secrets.ABAP_HOST }}
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - name: Install MTA Build Tool
+      run: npm install -g mbt
+    # Do not generate package-lock.json
+    # See https://blogs.sap.com/2020/07/07/escaping-eintegrity-hell/
+   
+        
+  deploy:
+     needs: build
+     runs-on: ubuntu-latest
+     steps:
+       - name: Deploy to Demo Server
+         uses: goelanivrat/sapui5_conn@a3
+         with:
+           cf_host: ${{ secrets.CF_HOST }}
+           cf_username: ${{ secrets.CF_USERNAME }}
+           cf_password: ${{ secrets.CF_PASSWORD }}
+           
